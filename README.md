@@ -1,6 +1,6 @@
 # MySQL-Training
 
-The MySQL course provides
+The MySQL course provides:
 - Basic database and query concepts
 - Establishes fundamentals for further DB trainings
 - Content: SQL syntax, data types, programmability
