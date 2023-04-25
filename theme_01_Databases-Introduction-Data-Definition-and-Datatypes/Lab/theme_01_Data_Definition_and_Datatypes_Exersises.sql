@@ -61,3 +61,58 @@ DROP TABLE `towns`;
 -- ============================ --
 -- Task 06: Create Table People --
 -- ============================ --
+
+CREATE TABLE `people` (
+	`id` INT AUTO_INCREMENT UNIQUE PRIMARY KEY,
+    `name` VARCHAR(200) NOT NULL,
+    `picture` MEDIUMBLOB,
+    `height` DECIMAL (5, 2) DEFAULT NULL,
+    CHECK (`height` >= 0) ,
+    `weight` DECIMAL (5, 2) DEFAULT NULL,
+	CHECK (`weight` >= 0),
+    `gender` ENUM ("m", "f") NOT NULL,
+    `birthdate` DATE NOT NULL,
+    `biography`TEXT
+);
+
+INSERT INTO `people` (`name`, `gender`, `birthdate`)
+VALUES 
+	("Pesho", "m", DATE(NOW())),
+	("Maria", "f", DATE(NOW())),
+    ("Ivan", "m", DATE(NOW())),
+    ("Kaloyan", "m", DATE(NOW())),
+    ("Gergana", "f", DATE(NOW()));
+    
+-- =========================== --
+-- Task 07: Create Table Users --
+-- =========================== --
+
+CREATE TABLE `users` (
+	`id` INT AUTO_INCREMENT UNIQUE PRIMARY KEY,
+    `username` VARCHAR (50) NOT NULl UNIQUE,
+    `password` VARCHAR (26) NOT NULL,
+    `profile_picture` MEDIUMBLOB,
+    `last_login_time` TIMESTAMP,
+    `is_deleted` BOOLEAN
+);
+
+INSERT INTO `users` (`username`, `password`)
+VALUES
+	("pesho", "pesho123*"),
+    ("ivan", "ivanPass*"),
+    ("gergana", "gerito46*"),
+    ("maria", "mar1a*"),
+    ("kaloyan", "ka10yan*");
+    
+-- =========================== --
+-- Task 08: Change Primary Key --
+-- =========================== --
+    
+ALTER TABLE `users`
+DROP PRIMARY KEY,
+ADD CONSTRAINT `pk_users`
+PRIMARY KEY (`id`, `username`);
+
+-- ===================================== --
+-- Task 09: Set Default Value of a Field --
+-- ===================================== --
