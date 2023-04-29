@@ -32,18 +32,32 @@ ORDER BY `id`;
 -- Task 04: Top Paid Employee --
 -- ========================== --
 
-CREATE VIEW `top_paid_employee` AS
+CREATE VIEW `v_top_paid_employee` AS
 	SELECT * FROM `employees`
     ORDER BY `salary`DESC
     LIMIT 1;
     
-SELECT * FROM `top_paid_employee`;
+SELECT * FROM `v_toemployeesp_paid_employee`;
 
 -- ================================= --
 -- Task 03: Update Salary and Select --
 -- ================================= --
 
+UPDATE `employees`
+SET `salary` = `salary` + 100
+WHERE `job_title` = 'Manager';
 
+SELECT `salary` FROM `employees`;
+
+-- ========================== --
+-- Task 06: Delete from Table --
+-- ========================== --
+
+DELETE FROM `employees`
+WHERE `department_id` IN (1, 2);
+
+SELECT * FROM `employees`
+ORDER BY `id`;
 
 -- =============== --
 -- Demos, Examples: --
@@ -134,7 +148,14 @@ SELECT CONCAT('Hello', ', ', 'Word') FROM `employees`;
 INSERT INTO `hotel`.`rooms`(`type`) VALUES
 	('Single Delux Room');
 
-INSERT INTO `hotel`.`rooms`(`type`) VALUES
-	(SELECT CONCAT('Hello', ', ', 'Word'));
+INSERT INTO `hotel`.`rooms`(`type`)
+	(SELECT CONCAT('Hello', ', ', 'Word') FROM `hotel`.`employees`);
 
+  SELECT NOW();  
+  
+  SELECT `id`, `first_name`, `salary` FROM `v_top_paid_employee`;
+  
+  CREATE VIEW `top_paid_col_subset` AS
+	SELECT `id`, `first_name`, `salary` FROM `v_top_paid_employee`;
     
+SELECT * FROM `top_paid_col_subset`;
