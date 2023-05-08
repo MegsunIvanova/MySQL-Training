@@ -128,3 +128,7 @@ FROM `authors`;
 SELECT `title`
 FROM `books`
 WHERE `title` REGEXP('^The [a-z]+$');
+
+SELECT * FROM `categories` WHERE `name` REGEXP '^[sd]'; /* name starts with 's' or 'd' */
+
+SELECT * FROM `departments` WHERE `name` REGEXP '[sd]'; /* name contains 's' or 'd' */
