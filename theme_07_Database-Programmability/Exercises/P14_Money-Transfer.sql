@@ -42,4 +42,4 @@ BEGIN
     
 END$$
 
-CALL usp_transfer_money (1, 1, 100)$$
+CALL usp_transfer_money (5, 6, 100)$$

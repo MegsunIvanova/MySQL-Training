@@ -15,8 +15,8 @@ BEGIN
     
     START TRANSACTION;
 	
-    SET count_by_id = (SELECT COUNT(*) FROM `accounts` WHERE `id`= account_id);
-	SET new_balance = (SELECT (`balance` + money_amount) FROM `accounts` WHERE `id`= account_id);
+    SET count_by_id := (SELECT COUNT(*) FROM `accounts` WHERE `id`= account_id);
+	SET new_balance := (SELECT (`balance` + money_amount) FROM `accounts` WHERE `id`= account_id);
     
     UPDATE `accounts` SET `balance` = new_balance WHERE `id`= account_id;
     
@@ -28,4 +28,4 @@ BEGIN
     
 END$$
     
-CALL usp_deposit_money(1,10)$$
+CALL usp_deposit_money(1,100)$$
