@@ -1,5 +1,5 @@
 CREATE DATABASE `online_store`;
-
+ 
 USE `online_store`;
 
 # 01. Table Design
@@ -58,5 +58,3 @@ CREATE TABLE `orders_products` (
     CONSTRAINT `fk_orders_products__orders` FOREIGN KEY (`order_id`) REFERENCES `orders`(`id`),
     CONSTRAINT `fk_orders_products__products` FOREIGN KEY (`product_id`) REFERENCES `products`(`id`)
 ); 
-
-# `products`, `customers`, `orders`, `categories`, `brands`, `reviews`, `orders_products`

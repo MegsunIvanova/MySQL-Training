@@ -22,5 +22,3 @@ WHERE (
 	FROM `orders` AS `o`
     WHERE `c`.`id` = `o`.`customer_id`
 ) = 0;
-
-# `products`, `customers`, `orders`, `categories`, `brands`, `reviews`, `orders_products`
